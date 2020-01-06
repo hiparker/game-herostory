@@ -18,7 +18,7 @@ com.google.protobuf.InvalidProtocolBufferException: Protocol message contained a
 	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:208)
 	at com.google.protobuf.AbstractParser.parseFrom(AbstractParser.java:48)
 	at org.tinygame.herostory.msg.GameMsgProtocol$UserEntryCmd.parseFrom(GameMsgProtocol.java:510)
-	at org.tinygame.herostory.decoder.GameMsgDecoder.channelRead(GameMsgDecoder.java:42)
+	at org.tinygame.herostory.coder.GameMsgDecoder.channelRead(GameMsgDecoder.java:42)
 	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
 	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
 	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)

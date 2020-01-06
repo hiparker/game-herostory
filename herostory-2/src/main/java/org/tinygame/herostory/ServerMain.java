@@ -11,9 +11,9 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.tinygame.herostory.decoder.GameMsgDecoder;
-import org.tinygame.herostory.encoder.GameMsgEncoder;
-import org.tinygame.herostory.handler.GameMsgHandler;
+import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
+import org.tinygame.herostory.coder.GameMsgDecoder;
+import org.tinygame.herostory.coder.GameMsgEncoder;
 
 /**
  * Created Date by 2019/12/31 0031.
@@ -28,6 +28,10 @@ public class ServerMain {
      * @param args
      */
     public static void main(String[] args) {
+
+
+        // 初始化 执行构造器
+        CmdHandlerFactory.init();
 
         // nio线程池
 
