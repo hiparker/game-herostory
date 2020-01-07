@@ -67,7 +67,7 @@ public final class CmdHandlerFactory {
                 // 获取函数参数类型
                 Class<?>[] paramTypes = currMethod.getParameterTypes();
 
-                if(paramTypes.length !=0 &&
+                if(paramTypes.length != 2 ||
                         !GeneratedMessageV3.class.isAssignableFrom(paramTypes[1])){
                     continue;
                 }
