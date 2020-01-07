@@ -3,9 +3,13 @@ package org.tinygame.herostory.modules.cmdHandler;
 import com.google.protobuf.GeneratedMessageV3;
 import lombok.extern.slf4j.Slf4j;
 import org.tinygame.herostory.common.msg.GameMsgProtocol;
+import org.tinygame.herostory.common.utils.PackageUtil;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @BelongsProject: herostory-2
@@ -31,12 +35,61 @@ public final class CmdHandlerFactory {
 
     /**
      * 初始化
+     * 通过反射 拿到所有的 Handler
      *
      */
     public static void init(){
-        _handlerMap.put(GameMsgProtocol.UserEntryCmd.class,new UserEntryCmdHandler());
-        _handlerMap.put(GameMsgProtocol.UserMoveToCmd.class,new UserMoveToCmdHandler());
-        _handlerMap.put(GameMsgProtocol.WhoElseIsHereCmd.class,new WhoElseIsHereCmdHandler());
+
+        // 拿到当前包下 实现了 ICmdHandler 接口的,所有子类
+        Set<Class<?>> clazzSet = PackageUtil.listSubClazz(CmdHandlerFactory.class.getPackage().getName(),
+                true,
+                ICmdHandler.class
+        );
+
+        for (Class<?> aClass : clazzSet) {
+            // 位运算
+            if((aClass.getModifiers() & Modifier.ABSTRACT) != 0){
+                continue;
+            }
+
+            // 获得方法数组
+            Method[] methods = aClass.getMethods();
+
+            Class<?> msgType = null;
+
+            for (Method currMethod : methods) {
+
+                // 非法判断
+                if(!currMethod.getName().equals("handle")){
+                    continue;
+                }
+
+                // 获取函数参数类型
+                Class<?>[] paramTypes = currMethod.getParameterTypes();
+
+                if(paramTypes.length !=0 &&
+                        !GeneratedMessageV3.class.isAssignableFrom(paramTypes[1])){
+                    continue;
+                }
+
+                msgType = paramTypes[1];
+                break;
+            }
+
+            // 非法判断
+            if(null == msgType){
+                continue;
+            }
+
+            try {
+
+                ICmdHandler<?> handler = (ICmdHandler<?>) aClass.newInstance();
+                _handlerMap.put(msgType,handler);
+
+            } catch (Exception e) {
+                log.error(e.getMessage());
+            }
+        }
     }
 
     /**
