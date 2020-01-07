@@ -60,7 +60,7 @@ public final class CmdHandlerFactory {
             for (Method currMethod : methods) {
 
                 // 非法判断
-                if(!currMethod.getName().equals("handle")){
+                if(!"handle".equals(currMethod.getName())){
                     continue;
                 }
 
@@ -68,7 +68,7 @@ public final class CmdHandlerFactory {
                 Class<?>[] paramTypes = currMethod.getParameterTypes();
 
                 if(paramTypes.length != 2 ||
-                        !GeneratedMessageV3.class.isAssignableFrom(paramTypes[1])){
+                        !(GeneratedMessageV3.class.isAssignableFrom(paramTypes[1]))){
                     continue;
                 }
 
@@ -84,6 +84,9 @@ public final class CmdHandlerFactory {
             try {
 
                 ICmdHandler<?> handler = (ICmdHandler<?>) aClass.newInstance();
+
+                log.info("{} <=> {}",msgType,handler.getClass());
+
                 _handlerMap.put(msgType,handler);
 
             } catch (Exception e) {

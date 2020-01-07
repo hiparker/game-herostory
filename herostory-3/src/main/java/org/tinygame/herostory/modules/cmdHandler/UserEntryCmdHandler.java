@@ -24,6 +24,8 @@ public class UserEntryCmdHandler implements ICmdHandler<GameMsgProtocol.UserEntr
         User newUser = new User();
         newUser.setUserId(cmd.getUserId());
         newUser.setHeroAvatar(cmd.getHeroAvatar());
+        // 默认每个用户100滴血
+        newUser.setBlood(100);
         // 添加用户
         UserManager.addUser(newUser);
 
@@ -39,5 +41,7 @@ public class UserEntryCmdHandler implements ICmdHandler<GameMsgProtocol.UserEntr
         // 广播信道
         BroadCaster.cast(result);
     }
+
+
 
 }

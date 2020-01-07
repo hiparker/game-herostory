@@ -16,5 +16,9 @@ public class User {
     private String heroAvatar;
     private Float moveToPosX;
     private Float moveToPosY;
+    /**
+     * 血
+     */
+    private Integer blood;
 
 }
