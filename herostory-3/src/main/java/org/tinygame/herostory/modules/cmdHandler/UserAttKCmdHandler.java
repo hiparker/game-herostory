@@ -16,6 +16,11 @@ import org.tinygame.herostory.modules.model.UserManager;
  */
 public class UserAttKCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd> {
 
+    /**
+     * 暴击几率
+     */
+    static private final int _critRate = 20;
+
     @Override
     public void handle(ChannelHandlerContext ctx, GameMsgProtocol.UserAttkCmd msg) {
 
@@ -64,8 +69,8 @@ public class UserAttKCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
             // 攻击 默认血量为 10滴一次 有暴击效果
             int defaultHp = 10;
             int random = 1+(int)(Math.random()*100);
-            if(random >= 80){
-                // 百分之20的几率暴击 暴击数为 100%-200%
+            if(random <= _critRate){
+                // 百分之20的几率暴击 暴击数为 100% - 200%
                 defaultHp = defaultHp + (int)(Math.random()*10);
             }
 
