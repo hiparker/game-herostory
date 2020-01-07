@@ -1,4 +1,4 @@
-package org.tinygame.herostory.model;
+package org.tinygame.herostory.modules.model;
 
 import lombok.Data;
 

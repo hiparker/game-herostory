@@ -1,9 +1,9 @@
-package org.tinygame.herostory.coder;
+package org.tinygame.herostory.modules.coder;
 
 import com.google.protobuf.GeneratedMessageV3;
 import com.google.protobuf.Message;
 import lombok.extern.slf4j.Slf4j;
-import org.tinygame.herostory.msg.GameMsgProtocol;
+import org.tinygame.herostory.common.msg.GameMsgProtocol;
 import java.util.HashMap;
 import java.util.Map;
 

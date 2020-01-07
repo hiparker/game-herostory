@@ -1,4 +1,4 @@
-package org.tinygame.herostory.model;
+package org.tinygame.herostory.modules.model;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * @BelongsProject: herostory-2
- * @BelongsPackage: org.tinygame.herostory.model
+ * @BelongsPackage: org.tinygame.herostory.modules.model
  * @Author: Parker
  * @CreateTime: 2020-01-06 21:53
  * @Description: 用户管理类

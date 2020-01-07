@@ -11,10 +11,11 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
-import org.tinygame.herostory.coder.GameMsgDecoder;
-import org.tinygame.herostory.coder.GameMsgEncoder;
-import org.tinygame.herostory.coder.GameMsgRecognizer;
+import org.tinygame.herostory.modules.cmdHandler.CmdHandlerFactory;
+import org.tinygame.herostory.modules.coder.GameMsgDecoder;
+import org.tinygame.herostory.modules.coder.GameMsgEncoder;
+import org.tinygame.herostory.modules.coder.GameMsgRecognizer;
+import org.tinygame.herostory.modules.handler.GameMsgHandler;
 
 /**
  * Created Date by 2019/12/31 0031.
@@ -22,7 +23,7 @@ import org.tinygame.herostory.coder.GameMsgRecognizer;
  * @author Parker
  */
 @Slf4j
-public class ServerMain {
+public class HeroStoryServerMain {
 
     /**
      * 应用主函数

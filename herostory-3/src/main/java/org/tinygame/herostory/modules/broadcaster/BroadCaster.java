@@ -1,4 +1,4 @@
-package org.tinygame.herostory.broadcaster;
+package org.tinygame.herostory.modules.broadcaster;
 
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
@@ -7,7 +7,7 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 
 /**
  * @BelongsProject: herostory-2
- * @BelongsPackage: org.tinygame.herostory.broadcaster
+ * @BelongsPackage: org.tinygame.herostory.modules.broadcaster
  * @Author: Parker
  * @CreateTime: 2020-01-06 21:42
  * @Description: 信道工具类

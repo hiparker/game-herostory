@@ -1,15 +1,15 @@
-package org.tinygame.herostory.cmdHandler;
+package org.tinygame.herostory.modules.cmdHandler;
 
 import com.google.protobuf.GeneratedMessageV3;
 import lombok.extern.slf4j.Slf4j;
-import org.tinygame.herostory.msg.GameMsgProtocol;
+import org.tinygame.herostory.common.msg.GameMsgProtocol;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @BelongsProject: herostory-2
- * @BelongsPackage: org.tinygame.herostory.cmdHandler
+ * @BelongsPackage: org.tinygame.herostory.modules.cmdHandler
  * @Author: Parker
  * @CreateTime: 2020-01-06 22:29
  * @Description: 执行工厂

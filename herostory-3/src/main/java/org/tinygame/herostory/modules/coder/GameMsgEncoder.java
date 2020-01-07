@@ -1,4 +1,4 @@
-package org.tinygame.herostory.coder;
+package org.tinygame.herostory.modules.coder;
 
 import com.google.protobuf.GeneratedMessageV3;
 import io.netty.buffer.ByteBuf;
@@ -7,7 +7,6 @@ import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import lombok.extern.slf4j.Slf4j;
-import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
  * @BelongsProject: herostory

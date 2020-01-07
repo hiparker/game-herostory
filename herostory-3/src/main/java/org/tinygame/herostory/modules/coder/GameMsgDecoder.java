@@ -1,4 +1,4 @@
-package org.tinygame.herostory.coder;
+package org.tinygame.herostory.modules.coder;
 
 
 import com.google.protobuf.Message;

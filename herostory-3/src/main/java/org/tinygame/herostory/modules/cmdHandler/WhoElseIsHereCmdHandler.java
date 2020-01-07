@@ -1,9 +1,9 @@
-package org.tinygame.herostory.cmdHandler;
+package org.tinygame.herostory.modules.cmdHandler;
 
 import io.netty.channel.ChannelHandlerContext;
-import org.tinygame.herostory.model.User;
-import org.tinygame.herostory.model.UserManager;
-import org.tinygame.herostory.msg.GameMsgProtocol;
+import org.tinygame.herostory.modules.model.User;
+import org.tinygame.herostory.modules.model.UserManager;
+import org.tinygame.herostory.common.msg.GameMsgProtocol;
 
 import java.util.Collection;
 
