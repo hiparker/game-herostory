@@ -1,27 +1,31 @@
 package org.tinygame.herostory.coder;
 
 
-import com.google.protobuf.GeneratedMessageV3;
+import com.google.protobuf.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import org.tinygame.herostory.msg.GameMsgProtocol;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @BelongsProject: herostory
  * @BelongsPackage: org.tinygame.herostory.decoder
  * @Author: Parker
  * @CreateTime: 2020-01-05 21:54
- * @Description: TODO
+ * @Description: 消息解码器
+ *
+ * 重构原则 保障单一原则，低耦合，高内聚
+ *
  */
+@Slf4j
 public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
 
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
-        // 异常处理
+        // 非法判断
         if(!(msg instanceof BinaryWebSocketFrame)){
             return;
         }
@@ -35,30 +39,24 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
         // 读取编号
         int msgCode = bf.readShort();
 
-        byte[] bs = new byte[bf.readableBytes()];
+        // Message
+        Message.Builder msgBuilder = GameMsgRecognizer.getBuilderByMsgCode(msgCode);
+        if(msgBuilder == null){
+            log.error("无法识别的消息，msgCode={}",msgCode);
+            return;
+        }
 
+        byte[] bs = new byte[bf.readableBytes()];
         bf.readBytes(bs);
 
-        GeneratedMessageV3 cmd = null;
+        msgBuilder.clear();
+        msgBuilder.mergeFrom(bs);
 
-        switch (msgCode){
-            case GameMsgProtocol.MsgCode.USER_ENTRY_CMD_VALUE:
-                cmd =  GameMsgProtocol.UserEntryCmd.parseFrom(bs);
-                break;
-            case GameMsgProtocol.MsgCode.WHO_ELSE_IS_HERE_CMD_VALUE:
-                cmd =  GameMsgProtocol.WhoElseIsHereCmd.parseFrom(bs);
-                break;
-            case GameMsgProtocol.MsgCode.USER_MOVE_TO_CMD_VALUE:
-                cmd =  GameMsgProtocol.UserMoveToCmd.parseFrom(bs);
-                break;
+        // 构建消息
+        Message newMsg = msgBuilder.build();
 
+        if(newMsg != null){
+            ctx.fireChannelRead(newMsg);
         }
-
-        if(cmd != null){
-            ctx.fireChannelRead(cmd);
-        }
-
-
-
     }
 }

@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
 import org.tinygame.herostory.coder.GameMsgDecoder;
 import org.tinygame.herostory.coder.GameMsgEncoder;
+import org.tinygame.herostory.coder.GameMsgRecognizer;
 
 /**
  * Created Date by 2019/12/31 0031.
@@ -29,7 +30,8 @@ public class ServerMain {
      */
     public static void main(String[] args) {
 
-
+        // 初始化 编码构造器
+        GameMsgRecognizer.init();
         // 初始化 执行构造器
         CmdHandlerFactory.init();
 

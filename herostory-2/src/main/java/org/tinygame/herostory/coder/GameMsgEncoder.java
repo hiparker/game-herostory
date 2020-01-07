@@ -14,7 +14,7 @@ import org.tinygame.herostory.msg.GameMsgProtocol;
  * @BelongsPackage: org.tinygame.herostory.encoder
  * @Author: Parker
  * @CreateTime: 2020-01-05 22:21
- * @Description: TODO
+ * @Description: 消息编码器
  */
 @Slf4j
 public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
@@ -26,17 +26,9 @@ public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
             return;
         }
 
-        int msgCode = -1;
+        int msgCode = GameMsgRecognizer.getMsgCodeByMsgClazz(msg.getClass());
 
-        if(msg instanceof GameMsgProtocol.UserEntryResult){
-            msgCode = GameMsgProtocol.MsgCode.USER_ENTRY_RESULT_VALUE;
-        } else if (msg instanceof GameMsgProtocol.WhoElseIsHereResult) {
-            msgCode = GameMsgProtocol.MsgCode.WHO_ELSE_IS_HERE_RESULT_VALUE;
-        } else if(msg instanceof GameMsgProtocol.UserMoveToResult){
-            msgCode = GameMsgProtocol.MsgCode.USER_MOVE_TO_RESULT_VALUE;
-        } else if(msg instanceof GameMsgProtocol.UserQuitResult){
-            msgCode = GameMsgProtocol.MsgCode.USER_QUIT_RESULT_VALUE;
-        }else{
+        if(msgCode <= -1){
             log.error("暂无消息类型，msgClazz = "+msg.getClass().getName());
         }
 
@@ -47,11 +39,8 @@ public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
         buf.writeShort((short)msgCode);
         buf.writeBytes(bs);
 
-
         BinaryWebSocketFrame frame = new BinaryWebSocketFrame(buf);
 
         super.write(ctx,frame,promise);
-
-
     }
 }

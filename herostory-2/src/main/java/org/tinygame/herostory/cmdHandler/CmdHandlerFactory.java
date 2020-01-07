@@ -1,6 +1,7 @@
 package org.tinygame.herostory.cmdHandler;
 
 import com.google.protobuf.GeneratedMessageV3;
+import lombok.extern.slf4j.Slf4j;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 import java.util.HashMap;
@@ -12,7 +13,10 @@ import java.util.Map;
  * @Author: Parker
  * @CreateTime: 2020-01-06 22:29
  * @Description: 执行工厂
+ *
+ *  重构原则 保障单一原则，低耦合，高内聚
  */
+@Slf4j
 public final class CmdHandlerFactory {
 
     /**
@@ -45,6 +49,13 @@ public final class CmdHandlerFactory {
             return null;
         }
         return _handlerMap.get(msgClazz);
+    }
+
+    static private <ICmd extends GeneratedMessageV3> ICmd cast(Object msg){
+        if(null == msg){
+            return null;
+        }
+        return (ICmd) msg;
     }
 
 }
