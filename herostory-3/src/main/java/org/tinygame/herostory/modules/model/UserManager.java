@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @BelongsProject: herostory-2
+ * @BelongsProject: herostory-3
  * @BelongsPackage: org.tinygame.herostory.modules.model
  * @Author: Parker
  * @CreateTime: 2020-01-06 21:53
