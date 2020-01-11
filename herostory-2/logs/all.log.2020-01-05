@@ -1,0 +1,25 @@
+[21:15:16,471] [INFO] ServerMain2.main --> 服务器启动！
+[21:52:43,611] [INFO] ServerMain.main --> 服务器启动成功！
+[21:53:31,852] [INFO] ServerMain.main --> 服务器启动成功！
+[22:03:07,731] [INFO] ServerMain.main --> 服务器启动成功！
+[22:04:18,018] [INFO] ServerMain.main --> 服务器启动成功！
+[22:05:11,345] [INFO] ServerMain.main --> 服务器启动成功！
+[22:05:19,497] [INFO] ServerMain.main --> 服务器启动成功！
+[22:32:01,086] [INFO] ServerMain.main --> 服务器启动成功！
+[22:33:30,844] [INFO] ServerMain.main --> 服务器启动成功！
+[22:34:19,138] [INFO] ServerMain.main --> 服务器启动成功！
+[22:35:08,121] [INFO] ServerMain.main --> 服务器启动成功！
+[22:36:37,252] [INFO] ServerMain.main --> 服务器启动成功！
+[22:38:57,242] [INFO] ServerMain.main --> 服务器启动成功！
+[22:40:34,122] [INFO] ServerMain.main --> 服务器启动成功！
+[22:40:36,667] [ERROR] GameMsgEncoder.write --> 暂无消息类型，msgClazz = org.tinygame.herostory.msg.GameMsgProtocol$UserEntryResult
+[22:41:52,081] [INFO] ServerMain.main --> 服务器启动成功！
+[22:50:00,032] [INFO] ServerMain.main --> 服务器启动成功！
+[22:53:21,034] [INFO] ServerMain.main --> 服务器启动成功！
+[22:55:56,624] [INFO] ServerMain.main --> 服务器启动成功！
+[23:01:26,845] [INFO] ServerMain.main --> 服务器启动成功！
+[23:02:52,088] [INFO] ServerMain.main --> 服务器启动成功！
+[23:15:23,804] [INFO] ServerMain.main --> 服务器启动成功！
+[23:22:24,320] [INFO] ServerMain.main --> 服务器启动成功！
+[23:24:28,757] [INFO] ServerMain.main --> 服务器启动成功！
+[23:27:22,164] [INFO] ServerMain.main --> 服务器启动成功！
