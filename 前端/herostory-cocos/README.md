@@ -26,16 +26,6 @@ Cocos_HeroStory
     - Spine 实现骨骼动画；
     - Google Protobuf 实现网络通信；
 
-## 后端
-
-- 开发环境：IntelliJ IDEA 2019.2；
-- 开发语言：Java 1.8；
-- 运行时操作系统：CentOS 7.6 x64；
-- 数据库： MariaDB 5.5.64；
-- 依赖库：
-    - Netty 高性能网络通信框架；
-    - Google Protobuf 实现网络传输协议；
-    - MyBatis 实现数据库持久化；
 
 ----
 
