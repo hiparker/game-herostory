@@ -58,8 +58,16 @@ public class UserAttKCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
             return;
         }
 
+        // 打印线程名称
         log.info("线程名称 = {}",Thread.currentThread().getName());
+        // 用户 A 在攻击用户 C 的时候, 是在线程 1 里,
+        // 用户 B 在攻击用户 C 的时候, 是在线程 2 里,
+        // 线程 1 和线程 2 同时修改用户 C 的血量...
+        // 这是要出事的节奏啊!
 
+        // 可以根据自己的喜好写,
+        // 例如加上装备加成、躲避、格挡、暴击等等...
+        // 这些都属于游戏的业务逻辑了!
         // 攻击 默认血量为 10滴一次 有暴击效果
         int subtractHp = 10;
 
