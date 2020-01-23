@@ -1,0 +1,55 @@
+
+Hero_Shaman.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Img/Belt
+  rotate: false
+  xy: 2, 2
+  size: 69, 56
+  orig: 69, 56
+  offset: 0, 0
+  index: -1
+Img/Body
+  rotate: false
+  xy: 391, 160
+  size: 76, 93
+  orig: 76, 93
+  offset: 0, 0
+  index: -1
+Img/Head
+  rotate: false
+  xy: 2, 60
+  size: 201, 193
+  orig: 201, 193
+  offset: 0, 0
+  index: -1
+Img/LHand
+  rotate: false
+  xy: 205, 126
+  size: 184, 127
+  orig: 184, 127
+  offset: 0, 0
+  index: -1
+Img/LLeg
+  rotate: false
+  xy: 469, 200
+  size: 34, 53
+  orig: 34, 53
+  offset: 0, 0
+  index: -1
+Img/RHand
+  rotate: false
+  xy: 205, 60
+  size: 50, 64
+  orig: 50, 64
+  offset: 0, 0
+  index: -1
+Img/RLeg
+  rotate: false
+  xy: 73, 6
+  size: 35, 52
+  orig: 35, 52
+  offset: 0, 0
+  index: -1

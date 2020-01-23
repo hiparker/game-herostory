@@ -1,0 +1,14 @@
+<html lang="en_US">
+<body>
+
+<script type="text/javascript">
+    // 动态创建 script 标签
+    var oScriptTag = document.createElement("script");
+    oScriptTag.type = "text/javascript";
+    oScriptTag.src = "./index.js?r=" + Math.random();
+    // 添加 script 标签
+    document.body.appendChild(oScriptTag);
+</script>
+
+</body>
+</html>
