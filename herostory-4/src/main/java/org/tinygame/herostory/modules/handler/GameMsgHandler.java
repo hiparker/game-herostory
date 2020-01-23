@@ -9,6 +9,7 @@ import org.tinygame.herostory.modules.cmdHandler.CmdHandlerFactory;
 import org.tinygame.herostory.modules.cmdHandler.ICmdHandler;
 import org.tinygame.herostory.modules.model.UserManager;
 import org.tinygame.herostory.common.msg.GameMsgProtocol;
+import org.tinygame.herostory.modules.threadHandler.MainThreadProcessor;
 
 
 /**
@@ -74,22 +75,11 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
             return;
         }
 
-        ICmdHandler<? extends GeneratedMessageV3> icmd = CmdHandlerFactory.create(msg.getClass());
-
-        icmd.handle(ctx, cast(msg));
-    }
-
-    /**
-     * 遇到泛型强转 欺骗编译器
-     * @param msg
-     * @param <ICmd>
-     * @return
-     */
-    private static <ICmd extends GeneratedMessageV3> ICmd cast(Object msg){
-        if(null == msg){
-            return null;
+        // 单一线程执行
+        if(msg instanceof GeneratedMessageV3){
+            MainThreadProcessor.getInstance().process(ctx,(GeneratedMessageV3) msg);
         }
-        return (ICmd) msg;
+
     }
 
 
