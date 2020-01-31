@@ -47,6 +47,7 @@
     - Netty 高性能网络通信框架；
     - Google Protobuf 实现网络传输协议；
     - MyBatis 实现数据库持久化；
+    - Lombok 代码简化插件
 
 ----
 
