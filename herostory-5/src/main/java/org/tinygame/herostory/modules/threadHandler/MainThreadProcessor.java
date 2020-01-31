@@ -2,6 +2,7 @@ package org.tinygame.herostory.modules.threadHandler;
 
 import com.google.protobuf.GeneratedMessageV3;
 import io.netty.channel.ChannelHandlerContext;
+import lombok.extern.slf4j.Slf4j;
 import org.tinygame.herostory.modules.cmdHandler.CmdHandlerFactory;
 import org.tinygame.herostory.modules.cmdHandler.ICmdHandler;
 import org.tinygame.herostory.modules.threadHandler.pool.NameableThreadFactory;
@@ -21,6 +22,7 @@ import java.util.concurrent.Executors;
  *  出了问题 好排查
  *  后续人员开发 无需关系 多线程问题
  */
+@Slf4j
 public final class MainThreadProcessor {
 
     /** 自身实例 */
@@ -52,9 +54,23 @@ public final class MainThreadProcessor {
 
         // 线程池单一执行
         _executorService.submit(()->{
-            ICmdHandler<? extends GeneratedMessageV3> icmd = CmdHandlerFactory.create(msg.getClass());
-            icmd.handle(ctx, cast(msg));
+            try {
+                ICmdHandler<? extends GeneratedMessageV3> icmd = CmdHandlerFactory.create(msg.getClass());
+                icmd.handle(ctx, cast(msg));
+            }catch (Exception e){
+                log.error(e.getMessage(),e);
+            }
         });
+    }
+
+    /**
+     * 单一线程执行主函数
+     * @param r runnable
+     */
+    public void process(Runnable r){
+        if(null != r){
+            _executorService.submit(r);
+        }
     }
 
     /**

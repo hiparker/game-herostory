@@ -1,11 +1,11 @@
 package org.tinygame.herostory.modules.model;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @BelongsProject: herostory-3
+ * @BelongsProject: herostory-5
  * @BelongsPackage: org.tinygame.herostory.modules.model
  * @Author: Parker
  * @CreateTime: 2020-01-06 21:53
@@ -16,7 +16,7 @@ public final class UserManager {
     /**
      * 用户字典
      */
-    private static Map<Integer,User> _userMap = new HashMap<>();
+    private static Map<Integer,User> _userMap = new ConcurrentHashMap<>();
 
 
     /**

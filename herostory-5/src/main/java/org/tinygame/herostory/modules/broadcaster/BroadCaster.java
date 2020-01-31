@@ -6,7 +6,7 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 /**
- * @BelongsProject: herostory-3
+ * @BelongsProject: herostory-5
  * @BelongsPackage: org.tinygame.herostory.modules.broadcaster
  * @Author: Parker
  * @CreateTime: 2020-01-06 21:42

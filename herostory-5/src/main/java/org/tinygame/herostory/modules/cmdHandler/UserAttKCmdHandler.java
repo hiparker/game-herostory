@@ -9,7 +9,7 @@ import org.tinygame.herostory.modules.model.User;
 import org.tinygame.herostory.modules.model.UserManager;
 
 /**
- * @BelongsProject: herostory-3
+ * @BelongsProject: herostory-5
  * @BelongsPackage: org.tinygame.herostory.modules.cmdHandler
  * @Author: Parker
  * @CreateTime: 2020-01-07 22:27
@@ -124,7 +124,7 @@ public class UserAttKCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
      *
      * @param targetId 死亡者id
      */
-    public static void toUserDie(Integer targetId) {
+    private static void toUserDie(Integer targetId) {
         // 非法判断
         if(null == targetId){
             return;
@@ -142,7 +142,7 @@ public class UserAttKCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
      * @param targetId 掉血者id
      * @param defaultHp 掉血量
      */
-    public static void toSubtractHp(Integer targetId, int defaultHp) {
+    private static void toSubtractHp(Integer targetId, int defaultHp) {
         // 非法判断
         if(null ==  targetId || defaultHp <= 0){
             return;

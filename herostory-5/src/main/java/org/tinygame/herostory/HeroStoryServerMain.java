@@ -11,6 +11,7 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.tinygame.herostory.modules.async.AsyncOperationProcessor;
 import org.tinygame.herostory.modules.cmdHandler.CmdHandlerFactory;
 import org.tinygame.herostory.modules.coder.GameMsgDecoder;
 import org.tinygame.herostory.modules.coder.GameMsgEncoder;
@@ -38,6 +39,8 @@ public class HeroStoryServerMain {
         CmdHandlerFactory.init();
         // SQL会话工厂初始化
         MysqlSessionFactory.init();
+        // 异步执行器初始化
+        AsyncOperationProcessor.init();
 
 
         // nio线程池
