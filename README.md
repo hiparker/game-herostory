@@ -6,7 +6,7 @@
 
 ## herostory-4 单线程游戏系统架构
 
-## herostory-5 CRUD数据库操作
+## herostory-5 CRUD数据库操作（针对Io操作，处理为多线程 Reactor模式）
 
 
 
